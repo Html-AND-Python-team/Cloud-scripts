@@ -1,9 +1,10 @@
-database_url = "postgresql://postgres:PyCoins2026@db.txtupflxioqqutekzvtn.supabase.co:5432/postgres"
 import os
 import psycopg
 
 
 def main():
+    database_url = os.environ["DATABASE_URL"]
+
     with psycopg.connect(database_url) as conn:
         with conn.cursor() as cur:
             cur.execute("SELECT NOW()")
